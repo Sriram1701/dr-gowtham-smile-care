@@ -60,11 +60,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 3. CLINIC INFRASTRUCTURE IMAGE ROTATOR
     const imageUrls = [
-        "image/main 1.jpg",
+        "image/mainphoto.jpg",
         "image/treat1.jpg",
         "image/reception.jpg",
         "image/hall.jpg",
-        "image/operation1.png"
+        "image/operationtime.jpeg"
     ];
 
     let currentIndex = 0;
@@ -87,6 +87,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 3 வினாடிக்கு ஒருமுறை மாறுகிறது
     setInterval(rotateClinicImages, 3000);
+});
+
+// 4. VIDEO PLAYER SYNC
+const reelsVideos = document.querySelectorAll('.reel-card video');
+
+reelsVideos.forEach(video => {
+    video.addEventListener('play', () => {
+        reelsVideos.forEach(otherVideo => {
+            if (otherVideo !== video) {
+                otherVideo.pause();
+            }
+        });
+    });
 });

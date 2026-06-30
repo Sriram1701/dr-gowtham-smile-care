@@ -115,6 +115,7 @@ header {
     display: flex;
     align-items: center;
     gap: 15px;
+    pointer-events: none;
 }
 
 .site-logo {
@@ -381,20 +382,21 @@ nav a.active {
 .hero-visual {
     flex: 1;
     position: relative;
-    min-height: 400px;
+    min-height: 410px;
     width: 100%;
     overflow: hidden;
     border-radius: 15px;
 }
 
-/* Family Background Image */
+/* Dentist Background Image */
 .hero-bg-img {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: absolute !important;
+    top: -10px !important;
+    left: 0 !important;
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
+    border-radius: 15px;
     z-index: 1;
 }
 
@@ -803,7 +805,7 @@ footer {
     text-align: left;
 }
 
-.footer-col h4 {
+.footer-col h3 {
     font-size: 20px;
     margin-bottom: 20px;
     color: var(--teal);
@@ -1274,4 +1276,12 @@ footer {
     .stats-label {
         font-size: 1.1rem;
     }
+}
+
+.sub-heading {
+    font-size: 0.6em;
+    display: block;
+    margin-top: 10px; 
+    font-weight: 400;
+    color: #2d6a4f;
 }

@@ -104,6 +104,13 @@ header {
 @media (min-width: 769px) {
     #navLinks {
         display: flex !important;
+        align-items: center !important; /* இதுதான் எல்லா மெனுக்களையும் சென்டர் செய்யும் */
+        gap: 20px; /* மெனுக்களுக்கு இடையே இடைவெளி */
+    }
+
+    .dropdown {
+        display: flex !important;
+        align-items: center !important;
     }
 
     .hamburgerBtn {
@@ -290,7 +297,7 @@ nav a.active {
 .hero-desc {
     text-align: left;
     margin-bottom: 10px;
-    font-size: 1.1rem;
+    font-size: 0.70 rem;
     color: #64748b;
     margin-top: -10px;
     max-width: 550px;
@@ -1004,6 +1011,12 @@ footer {
         color: white !important;
         font-weight: 700;
     }
+    
+    @media (max-width: 768px) {
+        .mobile-only-call {
+            display: none;
+        }
+    }
 
     .hero {
         flex-direction: column;
@@ -1215,7 +1228,12 @@ footer {
 }
 
 /* Google Review Section Styles */
-.review-section { padding: 60px 5%; background: #ffffff; text-align: center; }
+.review-section { 
+    padding: 60px 5%; 
+    background: #ffffff; 
+    text-align: center; 
+    scroll-margin-top: 200px;
+}
 
 .rating-badge { 
     font-size: 18px; 
@@ -1283,5 +1301,66 @@ footer {
     display: block;
     margin-top: 10px; 
     font-weight: 400;
-    color: #2d6a4f;
+    color: var(--teal);
+}
+
+/* 1. Services மெனுவை மற்றவற்றுடன் நேராக அடுக்க */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle; /* இது மற்ற லிங்க்குகளுடன் சமப்படுத்த உதவும் */
+}
+
+/* 2. Dropdown content-ஐ சீரமைக்க */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 250px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 9999;
+    border-radius: 8px;
+    top: 100%; /* 150% என்பது அதிகமாக இருந்திருக்கலாம், 100% சரியாக இருக்கும் */
+    left: 0;
+    margin-top: 10px; /* மெனுவிற்கும் லிங்க்கிற்கும் இடைவெளி */
+}
+
+/* 3. லிங்க்குகள் சரியாகத் தெரிய */
+.dropdown-content a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #475569;
+    font-size: 14px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.dropbtn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: inherit;
+    color: #475569;
+    padding: 10px 15px;
+    width: 100%;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .dropdown {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .dropdown-content {
+        position: static; /* மொபைலில் கீழே விரிய */
+        width: 100%;
+        box-shadow: none;
+    }
+    
+    .dropdown-content a {
+        text-align: center; /* லிங்க்குகளை சென்டர் செய்ய */
+    }
 }

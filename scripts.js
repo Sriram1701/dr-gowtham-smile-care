@@ -102,3 +102,42 @@ reelsVideos.forEach(video => {
         });
     });
 });
+
+// 5. SERVICES DROPDOWN TOGGLE
+const servicesDropdown = document.querySelector('.dropdown');
+
+if (servicesDropdown) {
+    servicesDropdown.addEventListener('click', function(e) {
+        // மெனு லிங்க்கை கிளிக் செய்தால் மட்டும் இயங்கும்
+        const content = this.querySelector('.dropdown-content');
+        if (content.style.display === 'block') {
+            content.style.display = 'none';
+        } else {
+            content.style.display = 'block';
+        }
+        e.stopPropagation(); // இது மெனுவை உடனே மூடுவதைத் தடுக்கும்
+    });
+}
+
+// review moving
+window.addEventListener('click', function() {
+    const content = document.querySelector('.dropdown-content');
+    if (content) {
+        content.style.display = 'none';
+    }
+});
+
+document.querySelector('a[href="#reviews"]').addEventListener('click', function(e) {
+    e.preventDefault(); // இது தானாகவே ஸ்க்ரோல் ஆவதைத் தடுக்கும்
+    
+    const targetElement = document.getElementById('reviews'); // ரிவ்யூ செக்ஷனை எடுக்கும்
+    const headerOffset = 150; // உங்கள் ஹெடர் உயரத்திற்கு ஏற்ப இந்த எண்ணை மாற்றலாம் (100-150)
+    
+    const elementPosition = targetElement.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+    window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+    });
+});

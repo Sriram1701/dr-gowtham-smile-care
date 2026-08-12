@@ -1,6 +1,49 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // 1. MINIMALIST FAQ ACCORDION TABS
+    // 1. TRUST COUNTER ANIMATION
+    const counters = document.querySelectorAll('.counter-num');
+
+    const animateCounter = (element) => {
+        const target = Number(element.dataset.target || 0);
+        const suffix = element.dataset.suffix || '';
+        const duration = 1400;
+        const start = performance.now();
+
+        const updateValue = (timestamp) => {
+            const progress = Math.min((timestamp - start) / duration, 1);
+            const easedProgress = 1 - Math.pow(1 - progress, 3);
+            const currentValue = Math.round(target * easedProgress);
+            element.textContent = `${currentValue.toLocaleString('en-IN')}${suffix}`;
+
+            if (progress < 1) {
+                requestAnimationFrame(updateValue);
+            } else {
+                element.textContent = `${target.toLocaleString('en-IN')}${suffix}`;
+            }
+        };
+
+        requestAnimationFrame(updateValue);
+    };
+
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                const card = entry.target.closest('.counter-card');
+                if (card) {
+                    card.classList.add('is-visible');
+                }
+                animateCounter(entry.target);
+                counterObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.4 });
+
+    counters.forEach(counter => {
+        counter.textContent = '0';
+        counterObserver.observe(counter);
+    });
+
+    // 2. MINIMALIST FAQ ACCORDION TABS
     const faqQuestions = document.querySelectorAll('.faq-question');
 
     faqQuestions.forEach(question => {
@@ -91,16 +134,84 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // 4. VIDEO PLAYER SYNC
+const reelCards = document.querySelectorAll('.reel-card');
 const reelsVideos = document.querySelectorAll('.reel-card video');
 
-reelsVideos.forEach(video => {
-    video.addEventListener('play', () => {
+const pauseAllReels = () => {
+    reelsVideos.forEach(video => {
+        if (!video.paused) {
+            video.pause();
+        }
+        video.currentTime = 0;
+        const card = video.closest('.reel-card');
+        if (card) {
+            card.classList.remove('is-playing');
+        }
+    });
+};
+
+document.addEventListener('pointerdown', (event) => {
+    if (!event.target.closest('.reel-card')) {
+        pauseAllReels();
+    }
+}, { passive: true });
+
+document.addEventListener('touchstart', (event) => {
+    if (!event.target.closest('.reel-card')) {
+        pauseAllReels();
+    }
+}, { passive: true });
+
+window.addEventListener('scroll', () => {
+    pauseAllReels();
+}, { passive: true });
+
+reelCards.forEach(card => {
+    const video = card.querySelector('video');
+    const button = card.querySelector('.reel-play-button');
+
+    const togglePlayingState = (isPlaying) => {
+        card.classList.toggle('is-playing', isPlaying);
+        if (button) {
+            button.style.opacity = isPlaying ? '0' : '1';
+            button.style.visibility = isPlaying ? 'hidden' : 'visible';
+            button.style.pointerEvents = isPlaying ? 'none' : 'auto';
+        }
+    };
+
+    const playThisVideo = (event) => {
+        if (event) {
+            event.stopPropagation();
+        }
+
         reelsVideos.forEach(otherVideo => {
             if (otherVideo !== video) {
                 otherVideo.pause();
+                otherVideo.currentTime = 0;
+                const otherCard = otherVideo.closest('.reel-card');
+                if (otherCard) {
+                    otherCard.classList.remove('is-playing');
+                }
             }
         });
+
+        video.play().catch(() => {});
+        togglePlayingState(true);
+    };
+
+    if (button) {
+        button.addEventListener('click', playThisVideo);
+    }
+
+    card.addEventListener('click', (event) => {
+        if (event.target !== button) {
+            playThisVideo(event);
+        }
     });
+
+    video.addEventListener('play', () => togglePlayingState(true));
+    video.addEventListener('pause', () => togglePlayingState(false));
+    video.addEventListener('ended', () => togglePlayingState(false));
 });
 
 // 5. SERVICES DROPDOWN TOGGLE

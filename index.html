@@ -37,6 +37,7 @@
 
         <nav class="nav-container">
             <div class="nav-links" id="navLinks">
+                <a href="#top">Home</a>
                 <div class="dropdown">
                     <button class="dropbtn">Services <i class="fas fa-caret-down"></i></button>
                     <div class="dropdown-content">
@@ -85,7 +86,7 @@
             </div>
 
             <div class="hero-actions">
-                <a href="https://wa.me/918667483347" target="_blank" class="wa-booking-btn">
+                <a href="https://wa.me/919787807552?text=Hi%20Doctor%2C%20I%20would%20like%20to%20inquire%20about%20your%20availability%20and%20book%20an%20appointment." target="_blank" class="wa-booking-btn">
                     <i class="fab fa-whatsapp"></i> WhatsApp
                 </a>
                 <a href="https://maps.app.goo.gl/rCiivwuzsyPhxgoN9?g_st=ac" target="_blank" class="loc-btn">
@@ -93,7 +94,7 @@
                 </a>
             </div>
 
-            <section class="features">
+            <div class="features" role="group" aria-label="Clinic highlights">
                 <div class="feature-item">
                     <i class="fas fa-tooth"></i>
                     <span>Painless Treatment</span>
@@ -106,7 +107,7 @@
                     <i class="fas fa-child"></i>
                     <span>Kids-Friendly Environment</span>
                 </div>
-            </section>
+            </div>
         </div>
         <div class="hero-visual">
             <img src="image/familydentist.png" alt="Dentist" class="hero-bg-img">
@@ -116,19 +117,19 @@
     <!-- TRUST COUNTERS -->
     <div class="counters">
         <div class="counter-card">
-            <div class="counter-num">10+</div>
+            <div class="counter-num" data-target="10" data-suffix="+">0</div>
             <div class="counter-label">Years Experience</div>
         </div>
         <div class="counter-card">
-            <div class="counter-num">750+</div>
+            <div class="counter-num" data-target="750" data-suffix="+">0</div>
             <div class="counter-label">Successful Surgeries</div>
         </div>
         <div class="counter-card">
-            <div class="counter-num">1000+</div>
-            <div class="counter-label">Satisfied Patients </div>
+            <div class="counter-num" data-target="1000" data-suffix="+">0</div>
+            <div class="counter-label">Satisfied Patients</div>
         </div>
         <div class="counter-card">
-            <div class="counter-num">15+</div>
+            <div class="counter-num" data-target="15" data-suffix="+">0</div>
             <div class="counter-label">Modern Equipments</div>
         </div>
     </div>
@@ -182,57 +183,23 @@
 
         <div class="slider-container">
             <div class="reels-track">
-                <!-- Original 10 Video Reels -->
-                <div class="reel-card"><video src="video/6.mp4" controls></video><span class="reel-badge"><i
-                            class="fab fa-instagram"></i> @smilecare</span><i
-                        class="fas fa-play-circle reel-play-icon"></i></div>
-                <div class="reel-card"><video src="video/2.mp4" controls></video><span class="reel-badge"><i
-                            class="fab fa-instagram"></i> @smilecare</span><i
-                        class="fas fa-play-circle reel-play-icon"></i></div>
-                <div class="reel-card"><video src="video/1.mp4" controls></video><span class="reel-badge"><i
-                            class="fab fa-instagram"></i> @smilecare</span><i
-                        class="fas fa-play-circle reel-play-icon"></i></div>
-                <div class="reel-card"><video src="video/3.mp4" controls></video><span class="reel-badge"><i
-                            class="fab fa-instagram"></i> @smilecare</span><i
-                        class="fas fa-play-circle reel-play-icon"></i></div>
-                <div class="reel-card"><video src="video/4.mp4" controls></video><span class="reel-badge"><i
-                            class="fab fa-instagram"></i> @smilecare</span><i
-                        class="fas fa-play-circle reel-play-icon"></i></div>
-                <div class="reel-card"><video src="video/5.mp4" controls></video><span class="reel-badge"><i
-                            class="fab fa-instagram"></i> @smilecare</span><i
-                        class="fas fa-play-circle reel-play-icon"></i></div>
-                <div class="reel-card"><video src="video/7.mp4" controls></video><span class="reel-badge"><i
-                            class="fab fa-instagram"></i> @smilecare</span><i
-                        class="fas fa-play-circle reel-play-icon"></i></div>
-                <div class="reel-card"><video src="video/8.mp4" controls></video><span class="reel-badge"><i
-                            class="fab fa-instagram"></i> @smilecare</span><i
-                        class="fas fa-play-circle reel-play-icon"></i></div>
+                <div class="reel-card"><video src="video/6.mp4" playsinline preload="metadata"></video><button class="reel-play-button" type="button" aria-label="Play video"><i class="fas fa-play"></i></button></div>
+                <div class="reel-card"><video src="video/2.mp4" playsinline preload="metadata"></video><button class="reel-play-button" type="button" aria-label="Play video"><i class="fas fa-play"></i></button></div>
+                <div class="reel-card"><video src="video/1.mp4" playsinline preload="metadata"></video><button class="reel-play-button" type="button" aria-label="Play video"><i class="fas fa-play"></i></button></div>
+                <div class="reel-card"><video src="video/3.mp4" playsinline preload="metadata"></video><button class="reel-play-button" type="button" aria-label="Play video"><i class="fas fa-play"></i></button></div>
+                <div class="reel-card"><video src="video/4.mp4" playsinline preload="metadata"></video><button class="reel-play-button" type="button" aria-label="Play video"><i class="fas fa-play"></i></button></div>
+                <div class="reel-card"><video src="video/5.mp4" playsinline preload="metadata"></video><button class="reel-play-button" type="button" aria-label="Play video"><i class="fas fa-play"></i></button></div>
+                <div class="reel-card"><video src="video/7.mp4" playsinline preload="metadata"></video><button class="reel-play-button" type="button" aria-label="Play video"><i class="fas fa-play"></i></button></div>
+                <div class="reel-card"><video src="video/8.mp4" playsinline preload="metadata"></video><button class="reel-play-button" type="button" aria-label="Play video"><i class="fas fa-play"></i></button></div>
 
-                <!-- Cloned Duplicates -->
-                <div class="reel-card"><video src="video/6.mp4" controls></video><span class="reel-badge"><i
-                            class="fab fa-instagram"></i> @smilecare</span><i
-                        class="fas fa-play-circle reel-play-icon"></i></div>
-                <div class="reel-card"><video src="video/2.mp4" controls></video><span class="reel-badge"><i
-                            class="fab fa-instagram"></i> @smilecare</span><i
-                        class="fas fa-play-circle reel-play-icon"></i></div>
-                <div class="reel-card"><video src="video/1.mp4" controls></video><span class="reel-badge"><i
-                            class="fab fa-instagram"></i> @smilecare</span><i
-                        class="fas fa-play-circle reel-play-icon"></i></div>
-                <div class="reel-card"><video src="video/3.mp4" controls></video><span class="reel-badge"><i
-                            class="fab fa-instagram"></i> @smilecare</span><i
-                        class="fas fa-play-circle reel-play-icon"></i></div>
-                <div class="reel-card"><video src="video/4.mp4" controls></video><span class="reel-badge"><i
-                            class="fab fa-instagram"></i> @smilecare</span><i
-                        class="fas fa-play-circle reel-play-icon"></i></div>
-                <div class="reel-card"><video src="video/5.mp4" controls></video><span class="reel-badge"><i
-                            class="fab fa-instagram"></i> @smilecare</span><i
-                        class="fas fa-play-circle reel-play-icon"></i></div>
-                <div class="reel-card"><video src="video/7.mp4" controls></video><span class="reel-badge"><i
-                            class="fab fa-instagram"></i> @smilecare</span><i
-                        class="fas fa-play-circle reel-play-icon"></i></div>
-                <div class="reel-card"><video src="video/8.mp4" controls></video><span class="reel-badge"><i
-                            class="fab fa-instagram"></i> @smilecare</span><i
-                        class="fas fa-play-circle reel-play-icon"></i></div>
+                <div class="reel-card"><video src="video/6.mp4" playsinline preload="metadata"></video><button class="reel-play-button" type="button" aria-label="Play video"><i class="fas fa-play"></i></button></div>
+                <div class="reel-card"><video src="video/2.mp4" playsinline preload="metadata"></video><button class="reel-play-button" type="button" aria-label="Play video"><i class="fas fa-play"></i></button></div>
+                <div class="reel-card"><video src="video/1.mp4" playsinline preload="metadata"></video><button class="reel-play-button" type="button" aria-label="Play video"><i class="fas fa-play"></i></button></div>
+                <div class="reel-card"><video src="video/3.mp4" playsinline preload="metadata"></video><button class="reel-play-button" type="button" aria-label="Play video"><i class="fas fa-play"></i></button></div>
+                <div class="reel-card"><video src="video/4.mp4" playsinline preload="metadata"></video><button class="reel-play-button" type="button" aria-label="Play video"><i class="fas fa-play"></i></button></div>
+                <div class="reel-card"><video src="video/5.mp4" playsinline preload="metadata"></video><button class="reel-play-button" type="button" aria-label="Play video"><i class="fas fa-play"></i></button></div>
+                <div class="reel-card"><video src="video/7.mp4" playsinline preload="metadata"></video><button class="reel-play-button" type="button" aria-label="Play video"><i class="fas fa-play"></i></button></div>
+                <div class="reel-card"><video src="video/8.mp4" playsinline preload="metadata"></video><button class="reel-play-button" type="button" aria-label="Play video"><i class="fas fa-play"></i></button></div>
             </div>
         </div>
     </section>
@@ -388,7 +355,7 @@
                             class="fab fa-facebook-f"></i></a>
                     <a href="https://www.instagram.com/drgowthamsmilecare?igsh=Y3Z1Z2M0YTRkdHNr"><i
                             class="fab fa-instagram"></i></a>
-                    <a href="https://wa.me/918667483347"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://wa.me/919787807552?text=Hi%20Doctor%2C%20I%20would%20like%20to%20inquire%20about%20your%20availability%20and%20book%20an%20appointment."><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
             <div class="footer-col">
@@ -406,8 +373,8 @@
 
         <p class="copyright">&copy; 2026 Dr. Gowtham's Smile Care. All rights reserved.</p>
         <div class="developer-tag">
-            <a href="https://www.instagram.com/sriram_ranjeetha?igsh=MXc0cXBueGduMGx2NQ==" target="_blank">
-                Developed by Sriram_1712
+            <a href="https://wa.me/917845391712?text=Hi%20sri%2C%20I%20found%20you%20from%20Dr%20Gowntham%20Smile%20Care%20website" target="_blank">
+                Developed by Sri_Web_squad
             </a>
         </div>
     </footer>
@@ -416,7 +383,7 @@
     <div class="floating-actions">
         <a href="tel:+916374088810" class="btn-float float-call" title="Call Dentist"><i
                 class="fas fa-phone-alt"></i></a>
-        <a href="https://wa.me/918667483347" target="_blank" class="btn-float float-wa" title="WhatsApp Chat"><i
+        <a href="https://wa.me/919787807552?text=Hi%20Doctor%2C%20I%20would%20like%20to%20inquire%20about%20your%20availability%20and%20book%20an%20appointment." target="_blank" class="btn-float float-wa" title="WhatsApp Chat"><i
                 class="fab fa-whatsapp"></i></a>
     </div>
 
